@@ -19,6 +19,9 @@ const reducer = (state = initialState, action) => {
         ...state,
         movies: newArray,
       };
+    case ADD_MOVIE:
+      console.log("case ADD_MOVIE, action = ", action);
+      return { ...state, movies: [...state.movies, action.payload] };
 
     default:
       return state;
