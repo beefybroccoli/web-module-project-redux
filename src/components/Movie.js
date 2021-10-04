@@ -6,7 +6,7 @@ import { deleteMovie } from "../actions/movieActions";
 const Movie = (props) => {
   const { id } = useParams();
   const { push } = useHistory();
-  const { dispatch } = props;
+  //   const { dispatch } = props;
   const movie = props.movies.find((movie) => movie.id === Number(id));
 
   return (
@@ -56,9 +56,12 @@ const Movie = (props) => {
                     className="m-2 btn btn-danger"
                     value="Delete"
                     onClick={() => {
-                      dispatch(deleteMovie(id));
+                      props.dispatch(deleteMovie(id));
                       //   props.deleteMovie(JSON.stringify(id));
-                      //   props.deleteMovie(id);
+                      //???????????????????????
+                      //??? Why below line does not work? ?????
+                      //   propsdeleteMovie(id);
+                      //???????????????????????
                       push("/movies");
                     }}
                   />
@@ -81,5 +84,7 @@ const mapStateToProps = (state) => {
 const mapActionToProps = () => {
   return { deleteMovie };
 };
+
+// export default connect(mapStateToProps, mapActionToProps)(Movie);
 
 export default connect(mapStateToProps)(Movie);
