@@ -56,6 +56,7 @@ const Movie = (props) => {
                     value="Delete"
                     onClick={() => {
                       //   dispatch(deleteMovie(id));
+                      //   props.deleteMovie(JSON.stringify(id));
                       props.deleteMovie(id);
                       push("/movies");
                     }}
@@ -80,4 +81,4 @@ const mapActionToProps = () => {
   return { deleteMovie };
 };
 
-export default connect(mapStateToProps, mapActionToProps)(Movie);
+export default connect(mapStateToProps, { deleteMovie })(Movie);
