@@ -6,7 +6,7 @@ import { deleteMovie } from "../actions/movieActions";
 const Movie = (props) => {
   const { id } = useParams();
   const { push } = useHistory();
-
+  const { dispatch } = props;
   const movie = props.movies.find((movie) => movie.id === Number(id));
 
   return (
@@ -35,6 +35,7 @@ const Movie = (props) => {
                   </label>
                 </div>
                 <div>
+                  movies
                   <label>
                     Metascore: <strong>{movie.metascore}</strong>
                   </label>
@@ -55,9 +56,9 @@ const Movie = (props) => {
                     className="m-2 btn btn-danger"
                     value="Delete"
                     onClick={() => {
-                      //   dispatch(deleteMovie(id));
+                      dispatch(deleteMovie(id));
                       //   props.deleteMovie(JSON.stringify(id));
-                      props.deleteMovie(id);
+                      //   props.deleteMovie(id);
                       push("/movies");
                     }}
                   />
@@ -81,4 +82,4 @@ const mapActionToProps = () => {
   return { deleteMovie };
 };
 
-export default connect(mapStateToProps, mapActionToProps)(Movie);
+export default connect(mapStateToProps)(Movie);

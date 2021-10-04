@@ -4,16 +4,18 @@ import { createStore } from "redux";
 import { Provider } from "react-redux";
 
 import movieReducer from "./reducers/index";
+import reducer from "./reducers/movieReducer";
 
 import App from "./App";
 import { BrowserRouter as Router } from "react-router-dom";
 import "./index.css";
 const store = createStore(movieReducer);
+console.log("store.getState() = ", store.getState());
 ReactDOM.render(
-  <Provider store={store}>
-    <Router>
+  <Router>
+    <Provider store={store}>
       <App />
-    </Router>
-  </Provider>,
+    </Provider>
+  </Router>,
   document.getElementById("root")
 );
