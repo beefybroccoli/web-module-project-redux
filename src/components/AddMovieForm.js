@@ -26,8 +26,9 @@ const AddMovieForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.dispatch(addMovie(movie));
+    props.dispatch(addMovie({ ...movie, id: Date.now() }));
     setMovie(INITIAL_STATE);
+    push("/movies/");
   };
 
   const { title, director, genre, metascore, description } = movie;
