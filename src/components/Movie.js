@@ -52,7 +52,7 @@ const Movie = (props) => {
                 <span
                   className="m-2 btn btn-dark"
                   onClick={() => {
-                    props.dispatch(addToFavorite(movie));
+                    addToFavorite(movie);
                   }}
                 >
                   Favorite
@@ -60,7 +60,7 @@ const Movie = (props) => {
                 <span
                   className="m-2 btn btn-dark"
                   onClick={() => {
-                    props.dispatch(removeFromFavorite(movie.id));
+                    removeFromFavorite(movie.id);
                   }}
                 >
                   Unfavorite
@@ -71,7 +71,7 @@ const Movie = (props) => {
                     className="m-2 btn btn-danger"
                     value="Delete"
                     onClick={() => {
-                      props.dispatch(deleteMovie(id));
+                      deleteMovie(id);
                       //   props.deleteMovie(JSON.stringify(id));
                       //???????????????????????
                       //??? Why below line does not work? ?????
@@ -96,10 +96,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapActionToProps = () => {
-  return { deleteMovie };
-};
+const mapDispatchToProps = { deleteMovie, addToFavorite, removeFromFavorite };
 
-// export default connect(mapStateToProps, mapActionToProps)(Movie);
-
-export default connect(mapStateToProps)(Movie);
+export default connect(mapStateToProps, mapDispatchToProps)(Movie);
