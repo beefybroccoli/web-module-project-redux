@@ -110,8 +110,4 @@ const AddMovieForm = (props) => {
   );
 };
 
-const mapsStateToProps = (state) => {
-  return {};
-};
-
-export default connect(mapsStateToProps)(AddMovieForm);
+export default connect()(AddMovieForm);

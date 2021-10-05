@@ -10,6 +10,7 @@ const MovieList = (props) => {
       <table className="table table-striped table-hover">
         <thead>
           <tr>
+            <th>ID</th>
             <th>Title</th>
             <th>Director</th>
             <th>Genre</th>
@@ -32,7 +33,7 @@ const MovieList = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    movies: state.movies,
+    movies: state.movie.movies,
   };
 };
 
