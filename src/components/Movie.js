@@ -52,7 +52,7 @@ const Movie = (props) => {
                 <span
                   className="m-2 btn btn-dark"
                   onClick={() => {
-                    addToFavorite(movie);
+                    props.addToFavorite(movie);
                   }}
                 >
                   Favorite
@@ -60,7 +60,7 @@ const Movie = (props) => {
                 <span
                   className="m-2 btn btn-dark"
                   onClick={() => {
-                    removeFromFavorite(movie.id);
+                    props.removeFromFavorite(movie.id);
                   }}
                 >
                   Unfavorite
@@ -71,12 +71,7 @@ const Movie = (props) => {
                     className="m-2 btn btn-danger"
                     value="Delete"
                     onClick={() => {
-                      deleteMovie(id);
-                      //   props.deleteMovie(JSON.stringify(id));
-                      //???????????????????????
-                      //??? Why below line does not work? ?????
-                      //   propsdeleteMovie(id);
-                      //???????????????????????
+                      props.deleteMovie(id);
                       push("/movies");
                     }}
                   />
