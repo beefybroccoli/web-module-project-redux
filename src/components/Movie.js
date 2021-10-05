@@ -6,7 +6,6 @@ import { addToFavorite, removeFromFavorite } from "../actions/favoriteActions";
 const Movie = (props) => {
   const { id } = useParams();
   const { push } = useHistory();
-  //   const { dispatch } = props;
   const movie = props.movies.find((movie) => movie.id === Number(id));
 
   return (
