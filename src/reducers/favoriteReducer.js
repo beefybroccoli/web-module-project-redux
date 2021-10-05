@@ -17,6 +17,12 @@ const favoriteReducer = (state = initialState, action) => {
       return { ...state, favorites: favorite_newArray };
 
     case REMOVE_FROM_FAVORITE:
+      console.log("case REMOVE_FROM_FAVORITE, action = ", action);
+      const filtered_newArray = state.favorites.filter((each) => {
+        return each.id !== action.payload;
+      });
+      console.log("filtered_newArray = ", filtered_newArray);
+      return { ...state, favorites: filtered_newArray };
 
     default:
       return state;

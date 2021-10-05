@@ -2,7 +2,7 @@ import React from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import { deleteMovie } from "../actions/movieActions";
-import { addToFavorite } from "../actions/favoriteActions";
+import { addToFavorite, removeFromFavorite } from "../actions/favoriteActions";
 const Movie = (props) => {
   const { id } = useParams();
   const { push } = useHistory();
@@ -56,6 +56,14 @@ const Movie = (props) => {
                   }}
                 >
                   Favorite
+                </span>
+                <span
+                  className="m-2 btn btn-dark"
+                  onClick={() => {
+                    props.dispatch(removeFromFavorite(movie.id));
+                  }}
+                >
+                  Unfavorite
                 </span>
                 <span className="delete">
                   <input
