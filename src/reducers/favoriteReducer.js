@@ -12,7 +12,9 @@ const favoriteReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TO_FAVORITE:
       console.log("case ADD_TO_FAVORITE, action = ", action);
-      return { ...state, favorites: [...state.favorites, action.payload] };
+      const favorite_newArray = [...state.favorites, action.payload];
+      console.log("favorite_newArray = ", favorite_newArray);
+      return { ...state, favorites: favorite_newArray };
 
     case REMOVE_FROM_FAVORITE:
 

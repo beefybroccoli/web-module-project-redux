@@ -49,7 +49,14 @@ const Movie = (props) => {
               </section>
 
               <section>
-                <span className="m-2 btn btn-dark">Favorite</span>
+                <span
+                  className="m-2 btn btn-dark"
+                  onClick={() => {
+                    props.dispatch(addToFavorite(movie));
+                  }}
+                >
+                  Favorite
+                </span>
                 <span className="delete">
                   <input
                     type="button"
